@@ -42,7 +42,7 @@ public class HandtaskAppHandler extends CordovaPlugin {
 			intent.putExtras(bundle);
 			intent.putExtra("zsyw", "zsyw");
 			intent.putExtra("token", token);
-			if (params.length() > 0) {
+			if (params != null && params.length() > 0) {
 				String[] keyValueList = params.split("&");
 				for(int i = 0; i < keyValueList.length; i++){
 					String[] keyAndValue = keyValueList[i].split("=");
