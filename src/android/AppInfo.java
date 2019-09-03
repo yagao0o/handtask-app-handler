@@ -86,7 +86,7 @@ public class AppInfo {
         try {
             json.put("name", this.name);
             json.put("packageName", this.packageName);
-            json.put("acitivity", this.activity);
+            json.put("activity", this.activity);
             json.put("company", this.company);
             json.put("iconUrl", "http://10.213.14.152:8093/mp/" + this.iconUrl);
             json.put("versionName", this.versionName);

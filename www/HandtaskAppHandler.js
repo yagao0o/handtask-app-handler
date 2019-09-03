@@ -1,8 +1,5 @@
 var exec = require('cordova/exec');
 var HandtaskAppHandler = {
-    coolMethod: function (arg0, success, error) {
-        exec(success, error, 'HandtaskAppHandler', 'coolMethod', [arg0]);
-    },
     getApps: function (packageName, success, error) {
         exec(success, error, 'HandtaskAppHandler', 'getApps', [packageName]);
     },
