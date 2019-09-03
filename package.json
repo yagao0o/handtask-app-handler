@@ -1,0 +1,17 @@
+{
+  "name": "cordova.handtask.app.handle",
+  "version": "1.0.0",
+  "description": "",
+  "cordova": {
+    "id": "cordova.handtask.app.handle",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Luyz",
+  "license": "ISC"
+}
