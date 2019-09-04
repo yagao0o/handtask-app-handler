@@ -67,7 +67,7 @@ public class HandtaskAppHandler extends CordovaPlugin {
     }
 
     private List<JSONObject> createDemoApps() {
-        List<JSONObject> apps = new ArrayList<>(4);
+        List<JSONObject> apps = new ArrayList<JSONObject>();
         apps.add(new AppInfo("工单","com.inspur.combined", "com.inspur.combined.login.LoginActivity", "浪潮通信信息系统有限公司","rest/download/down?type=images&file=A_AppsCombined_20160425202711.png","20.8","208").getJsonObject());
         apps.add(new AppInfo("掌上工具集","com.inspur.tool","com.inspur.tool.LoginActivity", "浪潮通信信息系统有限公司","rest/download/down?type=images&file=A_tool_20181222095453.png","1.3","3").getJsonObject());
         apps.add(new AppInfo("双闭环工单","ionic.inspur.doubleClosedLink","ionic.inspur.doubleClosedLink.MainActivity", "浪潮通信信息系统有限公司","rest/download/down?type=images&file=A_doubleClosedLink_20190815210934.png","0.0.3","3").getJsonObject());
