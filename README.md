@@ -22,10 +22,13 @@ HandtaskAppHandler.getApps
 
 初始化客户端，调用视频组件前，需要初始化客户端信息，请首先调用。
 
-    HandtaskAppHandler.getApps(packageName, successCallback, errorCallback);
+    HandtaskAppHandler.getApps(packageName, isOut, successCallback, errorCallback);
 
 参数说明：
-packageName 为当前应用的包名， successCallback 为调用成功的回调函数， errorCallback为调用失败的回调函数
+- packageName 为当前应用的包名
+- isOut 为是否外网，掌上运维启动时传入的参数
+- successCallback 为调用成功的回调函数
+- errorCallback为调用失败的回调函数
 
 
 HandtaskAppHandler.startApp
