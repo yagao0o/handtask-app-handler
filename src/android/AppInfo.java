@@ -88,7 +88,7 @@ public class AppInfo {
             json.put("packageName", this.packageName);
             json.put("activity", this.activity);
             json.put("company", this.company);
-            json.put("iconUrl", "http://10.213.14.152:8093/mp/" + this.iconUrl);
+            json.put("iconUrl", this.iconUrl);
             json.put("versionName", this.versionName);
             json.put("versionCode", this.versionCode);
         } catch (JSONException e) {

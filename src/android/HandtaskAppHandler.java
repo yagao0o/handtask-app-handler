@@ -30,7 +30,7 @@ public class HandtaskAppHandler extends CordovaPlugin {
                 public void onSuccess(Object o) {
                     List<MyApp> myApps = (List<MyApp>) o;
                     System.out.println(myApps);
-                    List<JSONObject> apps = createDemoApps(myApps);
+                    List<JSONObject> apps = createDemoApps(myApps, isOut);
                     callbackContext.success(new JSONArray(apps));
                 }
                 @Override
@@ -56,7 +56,7 @@ public class HandtaskAppHandler extends CordovaPlugin {
 			Bundle bundle = new Bundle();
 			Intent intent = new Intent();
 			intent.addCategory(Intent.CATEGORY_DEFAULT);
-			intent.setComponent(new ComponentName(packageName,activityName));
+			intent.setComponent(new ComponentName(packageName, activityName));
 			intent.putExtras(bundle);
 			intent.putExtra("zsyw", "zsyw");
 			intent.putExtra("token", token);
@@ -84,13 +84,20 @@ public class HandtaskAppHandler extends CordovaPlugin {
         }
     }
 
-    private List<JSONObject> createDemoApps(List<MyApp> myApps) {
+    private List<JSONObject> createDemoApps(List<MyApp> myApps, boolean isOut) {
         List<JSONObject> apps = new ArrayList<JSONObject>();
-        apps.add(new AppInfo("工单","com.inspur.combined", "com.inspur.combined.login.LoginActivity", "浪潮通信信息系统有限公司","rest/download/down?type=images&file=A_AppsCombined_20160425202711.png","20.8","208").getJsonObject());
-        apps.add(new AppInfo("掌上工具集","com.inspur.tool","com.inspur.tool.LoginActivity", "浪潮通信信息系统有限公司","rest/download/down?type=images&file=A_tool_20181222095453.png","1.3","3").getJsonObject());
-        apps.add(new AppInfo("双闭环工单","ionic.inspur.doubleClosedLink","ionic.inspur.doubleClosedLink.MainActivity", "浪潮通信信息系统有限公司","rest/download/down?type=images&file=A_doubleClosedLink_20190815210934.png","0.0.3","3").getJsonObject());
-        apps.add(new AppInfo("工单报表","comt.able.inspur.workorder","comt.able.inspur.workorder.login.LoginAct", "浪潮通信信息系统有限公司","rest/download/down?type=images&file=A_gdbb_20140609190446.png","3.5","58").getJsonObject());
-        apps.add(new AppInfo("工单直派","com.inspur.workorder","com.inspur.workorder.login.LoginAct", "浪潮通信信息系统有限公司","rest/download/down?type=images&file=A_workorder_20140609190728.png","5.1","16").getJsonObject());
+        apps.add(new AppInfo("工单","com.inspur.combined", "com.inspur.combined", "浪潮通信信息系统有限公司","rest/download/down?type=images&file=A_AppsCombined_20160425202711.png","20.8","208").getJsonObject());
+        for (int i = 0; i < myApps.size(); i++) {
+            MyApp app = myApps.get(i);
+            apps.add(new AppInfo(
+                    app.getAppName(),
+                    app.getStartActivityInfo(),
+                    app.getStartInfo(),
+                    app.getAppCompany(),
+                    (isOut?"http://211.137.190.76:8092/mp/":"http://10.213.14.152:8093/mp/") +app.getAppIco(),
+                    app.getVersion(),
+                    app.getVersionCode() + "").getJsonObject());
+        }
         return apps;
     }
 }
