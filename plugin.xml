@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova.handtask.app.handle" version="1.0.0" 
+<plugin id="cordova.handtask.app.handle" version="1.1.0" 
     xmlns="http://apache.org/cordova/ns/plugins/1.0" 
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>HandtaskAppHandler</name>
@@ -15,5 +15,6 @@
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/HandtaskAppHandler.java" target-dir="src/cordova/handtask/app/handle" />
         <source-file src="src/android/AppInfo.java" target-dir="src/cordova/handtask/app/handle" />
+        <resource-file src="src/android/libs/encryption.aar" target="libs/encryption.aar" />
     </platform>
 </plugin>

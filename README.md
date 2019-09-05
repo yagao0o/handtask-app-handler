@@ -33,12 +33,13 @@ HandtaskAppHandler.startApp
 
 初始化客户端，调用视频组件前，需要初始化客户端信息，请首先调用。
 
-    HandtaskAppHandler.startApp(packageName, activityName, params, successCallback, errorCallback);
+    HandtaskAppHandler.startApp(packageName, activityName, params, isOut, successCallback, errorCallback);
 
 参数说明：
 - packageName 为唤醒应用的包名
 - activityName 为唤醒应用的Activity名
 - params 为唤醒应用参数，可为空，格式为: 参数名1=参数值1&参数名2=参数值2&参数名3=参数值3
+- isOut 为是否外网，掌上运维启动时传入的参数
 - successCallback 为调用成功的回调函数
 - errorCallback为调用失败的回调函数
 
