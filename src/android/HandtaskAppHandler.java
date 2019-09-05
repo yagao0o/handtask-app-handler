@@ -6,6 +6,7 @@ import android.os.Bundle;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import com.inspur.encryption.OperationUtils;
+import com.inspur.encryption.utils.CommonMethodUtil.InvokeCallBack;
 import com.inspur.encryption.utils.MyApp;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,16 +28,13 @@ public class HandtaskAppHandler extends CordovaPlugin {
             OperationUtils.getSecPackage("com.inspur.combined", isOut, new InvokeCallBack(){
                 @Override
                 public void onSuccess(Object o) {
-                    progressDialog.dismiss();
                     List<MyApp> myApps = (List<MyApp>) o;
                     System.out.println(myApps);
-                    List<JSONObject> apps = this.createDemoApps(myApps);
+                    List<JSONObject> apps = createDemoApps(myApps);
                     callbackContext.success(new JSONArray(apps));
                 }
                 @Override
                 public void onFail(Exception e) {
-                    progressDialog.dismiss();
-                    ToastUtils.longToast(MainActivity.this, "取得工单二级应用失败");
                     callbackContext.error("取得工单二级应用失败");
                 }
             });

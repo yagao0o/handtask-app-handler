@@ -13,6 +13,7 @@
             </feature>
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <framework src="src/android/handtask-app-handler.gradle" custom="true" type="gradleReference" />
         <source-file src="src/android/HandtaskAppHandler.java" target-dir="src/cordova/handtask/app/handle" />
         <source-file src="src/android/AppInfo.java" target-dir="src/cordova/handtask/app/handle" />
         <resource-file src="src/android/libs/encryption.aar" target="libs/encryption.aar" />

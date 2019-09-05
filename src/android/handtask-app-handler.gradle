@@ -1,0 +1,13 @@
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:28.+'
+    implementation(name: 'encryption', ext: 'aar')
+}
+
+android {
+    repositories {
+        flatDir {
+            dirs 'src/main/libs'
+        }
+    }
+}
