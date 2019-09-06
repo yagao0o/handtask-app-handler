@@ -25,7 +25,7 @@ public class HandtaskAppHandler extends CordovaPlugin {
             String packageName = args.getString(0);
             boolean isOut = "true".equalsIgnoreCase(args.getString(1));//外网
             System.out.println("Current package Name is :" + packageName);
-            OperationUtils.getSecPackage("com.inspur.combined", isOut, new InvokeCallBack(){
+            OperationUtils.getSecPackage(packageName, isOut, new InvokeCallBack(){
                 @Override
                 public void onSuccess(Object o) {
                     List<MyApp> myApps = (List<MyApp>) o;
@@ -94,7 +94,7 @@ public class HandtaskAppHandler extends CordovaPlugin {
                     app.getStartActivityInfo(),
                     app.getStartInfo(),
                     app.getAppCompany(),
-                    (isOut?"http://211.137.190.76:8092/mp/":"http://10.213.14.152:8093/mp/") +app.getAppIco(),
+                    (isOut?"http://211.137.182.253:8092/mp/":"http://10.213.51.42:8092/mp/") +app.getAppIco(),
                     app.getVersion(),
                     app.getVersionCode() + "").getJsonObject());
         }
