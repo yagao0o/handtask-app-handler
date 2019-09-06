@@ -86,15 +86,20 @@ public class HandtaskAppHandler extends CordovaPlugin {
 
     private List<JSONObject> createDemoApps(List<MyApp> myApps, boolean isOut) {
         List<JSONObject> apps = new ArrayList<JSONObject>();
-        // apps.add(new AppInfo("工单","com.inspur.combined", "com.inspur.combined", "浪潮通信信息系统有限公司","rest/download/down?type=images&file=A_AppsCombined_20160425202711.png","20.8","208").getJsonObject());
         for (int i = 0; i < myApps.size(); i++) {
             MyApp app = myApps.get(i);
+            
+            String iconUrl = app.getAppIco();
+            if (!iconUrl.contains("http")) {
+                iconUrl = isOut ? "http://211.137.182.253:8092/mp/":"http://10.213.51.42:8092/mp/";
+                iconUrl += app.getAppIco();
+            }
             apps.add(new AppInfo(
                     app.getAppName(),
-                    app.getStartActivityInfo(),
                     app.getStartInfo(),
+                    app.getStartActivityInfo(),
                     app.getAppCompany(),
-                    (isOut?"http://211.137.182.253:8092/mp/":"http://10.213.51.42:8092/mp/") +app.getAppIco(),
+                    iconUrl,
                     app.getVersion(),
                     app.getVersionCode() + "").getJsonObject());
         }
