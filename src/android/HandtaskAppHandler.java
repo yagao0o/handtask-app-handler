@@ -55,7 +55,8 @@ public class HandtaskAppHandler extends CordovaPlugin {
 			System.out.println("=================================");
 			Bundle bundle = new Bundle();
 			Intent intent = new Intent();
-			intent.addCategory(Intent.CATEGORY_DEFAULT);
+            intent.addCategory(Intent.CATEGORY_DEFAULT);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent.setComponent(new ComponentName(packageName, activityName));
 			intent.putExtras(bundle);
 			intent.putExtra("zsyw", "zsyw");
