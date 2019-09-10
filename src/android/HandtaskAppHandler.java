@@ -102,7 +102,8 @@ public class HandtaskAppHandler extends CordovaPlugin {
                     app.getAppCompany(),
                     iconUrl,
                     app.getVersion(),
-                    app.getVersionCode() + "").getJsonObject());
+                    app.getVersionCode() + "").getJsonObject(),
+                    app.getPublicState());
         }
         return apps;
     }

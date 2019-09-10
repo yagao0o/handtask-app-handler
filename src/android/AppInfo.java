@@ -13,9 +13,10 @@ public class AppInfo {
     private String iconUrl;
     private String versionName;
     private String versionCode;
+    private String publicState;
 
     public AppInfo() {}
-    public AppInfo(String name, String packageName, String activity, String company, String iconUrl, String versionName, String versionCode) {
+    public AppInfo(String name, String packageName, String activity, String company, String iconUrl, String versionName, String versionCode, String publicState) {
         this.name = name;
         this.packageName = packageName;
         this.activity = activity;
@@ -23,6 +24,7 @@ public class AppInfo {
         this.iconUrl = iconUrl;
         this.versionName = versionName;
         this.versionCode = versionCode;
+        this.publicState = publicState;
     }
 
     public String getName() {
@@ -81,6 +83,14 @@ public class AppInfo {
         this.versionCode = versionCode;
     }
 
+    public void setPublicState(String publicState) {
+        this.publicState = publicState;
+    }
+
+    public String getPublicState() {
+        return publicState;
+    }
+
     public JSONObject getJsonObject(){
         JSONObject json = new JSONObject();
         try {
@@ -91,6 +101,7 @@ public class AppInfo {
             json.put("iconUrl", this.iconUrl);
             json.put("versionName", this.versionName);
             json.put("versionCode", this.versionCode);
+            json.put("publicState", this.publicState);
         } catch (JSONException e) {
             e.printStackTrace();
         }
